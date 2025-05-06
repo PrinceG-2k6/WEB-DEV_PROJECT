@@ -1,10 +1,7 @@
 <?php
 session_start();
 include 'db_config.php';
-
-if(isset($_POST['submit']))
-{
-  $email = $_POST['email'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
 $sql = "SELECT * FROM users WHERE email = ?";
@@ -46,5 +43,5 @@ try{
 catch(PDOException $e) {
   echo "<h4 align='center'>An error occurred: " . $e->getMessage() . "</h4>";
 }
-}
+
 ?>
