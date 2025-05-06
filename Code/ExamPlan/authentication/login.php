@@ -21,7 +21,7 @@ try{
     $_SESSION['name']=$user['name'];
     
     if ($user['role'] === 'admin') {
-      header("Location: /Code/ExamPlan/admin/index.php");
+      header("Location: /ExamPlan/admin/index.php");
     } else {
       header("Location: student_dashboard.php");
     }
