@@ -6,6 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// 👇 Mounts the router at /api/appointments
 app.use("/api/appointments", appointmentsRoute);
 
 const PORT = 5000;
