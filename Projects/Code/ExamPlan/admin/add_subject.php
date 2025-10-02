@@ -51,8 +51,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             </select><br><br>
             <label>Semester:</label>
             <input type="number" name="semester" min="1" max="8" required><br><br>
+        <button type="submit" name="gen_subject">Create</button>
         
-        <button type="submit" name="gen_subject"><a href="add_subject2.php" style="text-decoration:none;color:white;">Create</a></button>
     </form>
     </div>
     <div class="back">
@@ -92,11 +92,10 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 </body>
 </html>
 <?PHP
-if(isset($_POST['gen_subject']))
-{
-    $_SESSION['semester']=$_POST["semester"];
-    $_SESSION['branch']=$_POST['branch'];
-
-
+if (isset($_POST['gen_subject'])) {
+    $_SESSION['semester'] = $_POST['semester'];
+    $_SESSION['branch']   = $_POST['branch'];
+    header("Location: ./add_subject2.php");
+    exit();
 }
 ?>
