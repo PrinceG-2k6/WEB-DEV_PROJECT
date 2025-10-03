@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './App.css'
 
-const ColorList = () => {
+const ColorList = ({showcolor}) => {
+
 
     const [colorData, setColorData] = useState([]);
     const [loading, setLoading] = useState(false);
     const url = "http://localhost:3000/colors";
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
@@ -20,6 +23,8 @@ const ColorList = () => {
         setColorData(response);
         setLoading(false);
     }
+
+
     const deletecolor = async (id) => {
         let response = await fetch(url + "/" + id, {
             method: "delete",
@@ -33,9 +38,9 @@ const ColorList = () => {
     }
 
     const editcolor = (id) => {
-        // navigate("/edit/"+id);
+        navigate("/edit/" + id);
     }
-
+    
     return (
         <div style={{ textAlign: "center" }}>
             <ul className='color-list color-list-head'>
@@ -66,7 +71,7 @@ const ColorList = () => {
                                 <li>rgb({color.red},{color.green},{color.blue})</li>
                                 <li><button onClick={() => deletecolor(color.id)}>Delete</button>
                                     <button onClick={() => editcolor(color.id)}>Edit</button>
-                                    <button onClick={() => showcolor(color.id)}>Show</button>
+                                    <button onClick={() => showcolor(color.red, color.green, color.blue)}>Show</button>
                                 </li>
                             </ul>
                         </div>
