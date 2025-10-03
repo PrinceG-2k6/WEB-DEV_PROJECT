@@ -14,7 +14,6 @@ const AddColor = () => {
     const url = "http://localhost:3000/colors";
 
     const createColor = async (e) => {
-        e.preventDefault(); // prevent form reload
         localStorage.setItem('color', JSON.stringify({ red, green, blue }))
         let response = await fetch(url, {
             method: 'POST',
@@ -45,8 +44,8 @@ const AddColor = () => {
             <div className='colorMix'>
                 <div style={{
                     backgroundColor: `rgb(${red},${green},${blue})`,
-                    height: '500px',
-                    width: '500px'
+                    height: '350px',
+                    width: '350px'
                 }} className="container">
                 </div>
 
@@ -75,7 +74,7 @@ const AddColor = () => {
                 </form>
             </div>
 
-            <div className='colorList'>
+            <div className='colorList scrollable'>
                 <ColorList showcolor={showcolor} />
             </div>
         </div>
