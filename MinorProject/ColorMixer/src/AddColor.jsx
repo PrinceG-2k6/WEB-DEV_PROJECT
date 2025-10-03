@@ -31,13 +31,12 @@ const AddColor = () => {
         setRefresh(prev => !prev);   // 🔹 toggle refresh state
     };
 
-    // 🔹 Refresh effect when showcolor is called
     useEffect(() => {
         const colors = JSON.parse(localStorage.getItem('color')) || { red: 0, green: 0, blue: 0 };
         setRed(colors.red);
         setGreen(colors.green);
         setBlue(colors.blue);
-    }, [refresh]);   // runs whenever refresh changes
+    }, [refresh]);  
 
     return (
         <div className='container'>
@@ -54,15 +53,15 @@ const AddColor = () => {
                         <tbody>
                             <tr>
                                 <td><label htmlFor="red">Red : </label></td>
-                                <td><input type="range" id='red' value={red} onChange={(e) => setRed(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='red' value={red} onChange={(e) => setRed(e.target.value)} min={0} max={255} /><p>{red}</p> </td>
                             </tr>
                             <tr>
                                 <td><label htmlFor="green">Green : </label></td>
-                                <td><input type="range" id='green' value={green} onChange={(e) => setGreen(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='green' value={green} onChange={(e) => setGreen(e.target.value)} min={0} max={255} /><p>{green}</p></td>
                             </tr>
                             <tr>
                                 <td><label htmlFor="blue">Blue : </label></td>
-                                <td><input type="range" id='blue' value={blue} onChange={(e) => setBlue(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='blue' value={blue} onChange={(e) => setBlue(e.target.value)} min={0} max={255} /><p>{blue}</p></td>
                             </tr>
                             <tr>
                                 <td colSpan={2}>

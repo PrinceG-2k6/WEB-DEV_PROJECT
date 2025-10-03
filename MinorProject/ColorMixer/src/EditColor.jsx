@@ -53,15 +53,15 @@ const EditColor = () => {
                         <tbody>
                             <tr>
                                 <td><label htmlFor="red">Red : </label></td>
-                                <td><input type="range" id='red' value={red} onChange={(e) => setRed(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='red' value={red} onChange={(e) => setRed(e.target.value)} min={0} max={255} /><p>{red}</p></td>
                             </tr>
                             <tr>
                                 <td><label htmlFor="green">Green : </label></td>
-                                <td><input type="range" id='green' value={green} onChange={(e) => setGreen(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='green' value={green} onChange={(e) => setGreen(e.target.value)} min={0} max={255} /><p>{green}</p></td>
                             </tr>
                             <tr>
                                 <td><label htmlFor="blue">Blue : </label></td>
-                                <td><input type="range" id='blue' value={blue} onChange={(e) => setBlue(e.target.value)} min={0} max={255} /></td>
+                                <td className='rangeInput'><input type="range" id='blue' value={blue} onChange={(e) => setBlue(e.target.value)} min={0} max={255} /><p>{blue}</p></td>
                             </tr>
                             <tr>
                                 <td colSpan={2}>
