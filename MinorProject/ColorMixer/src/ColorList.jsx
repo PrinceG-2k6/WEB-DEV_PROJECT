@@ -1,12 +1,12 @@
-import React from 'react'
+
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './App.css'
 
 const ColorList = () => {
 
     const [colorData, setColorData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     const url = "http://localhost:3000/colors";
 
     useEffect(() => {
@@ -20,48 +20,60 @@ const ColorList = () => {
         setColorData(response);
         setLoading(false);
     }
-    const deleteUser = async(id)=>{
-        let response = await fetch(url+"/"+id,{
-            method:"delete",
+    const deletecolor = async (id) => {
+        let response = await fetch(url + "/" + id, {
+            method: "delete",
 
         });
         response = await response.json();
-        if(response){
+        if (response) {
             alert("Record Deleted");
             getColorData();
         }
     }
 
-    const editUser=(id)=>{
-        navigate("/edit/"+id);
+    const editcolor = (id) => {
+        // navigate("/edit/"+id);
     }
 
-  return (
-    <div style={{textAlign:"center"}}>
-            <ul className='user-list user-list-head'>
-                <li>Name</li>
-                <li>Age</li>
-                <li>Email</li>
+    return (
+        <div style={{ textAlign: "center" }}>
+            <ul className='color-list color-list-head'>
+                <li>Color</li>
+                <li>Red</li>
+                <li>Green</li>
+                <li>Blue</li>
+                <li>RGB</li>
                 <li>Action</li>
             </ul>
             {
                 !loading ?
-                    userData.map((user) => (
-                        <div>
+                    colorData.map((color) => (
+                        <div key={color.id}>
                             <hr />
-                            <ul key={user.id} className='user-list'>
-                                <li>{user.name}</li>
-                                <li>{user.age}</li>
-                                <li>{user.email}</li>
-                                <li><button onClick={()=>deleteUser(user.id)}>Delete</button>
-                                    <button onClick={()=>editUser(user.id)}>Edit</button>
+                            <ul key={color.id} className='color-list'>
+                                <li><div className='colorMix'>
+                                    <div style={{
+                                        backgroundColor: 'rgb(' + color.red + ',' + color.green + ',' + color.blue + ')',
+                                        height: '50px',
+                                        width: '50px'
+                                    }} className="container">
+
+                                    </div></div></li>
+                                <li>{color.red}</li>
+                                <li>{color.green}</li>
+                                <li>{color.blue}</li>
+                                <li>rgb({color.red},{color.green},{color.blue})</li>
+                                <li><button onClick={() => deletecolor(color.id)}>Delete</button>
+                                    <button onClick={() => editcolor(color.id)}>Edit</button>
+                                    <button onClick={() => showcolor(color.id)}>Show</button>
                                 </li>
                             </ul>
                         </div>
                     )) : "Data Loading"
             }
         </div>
-  )
+    )
 }
 
 export default ColorList

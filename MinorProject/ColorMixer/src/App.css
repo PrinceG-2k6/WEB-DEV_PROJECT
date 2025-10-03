@@ -1,3 +1,28 @@
+.NavList{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.NavList li{
+  margin: 10px;
+  list-style-type: none;
+  color: Red;
+  font-size: 20px;
+}
+
+.user-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+.user-list-head{
+  font-size: 30px;
+  font-weight: 800;
+  list-style-type: none;
+}
+
 .container{
     display: flex;
     /* align-items: center; */
