@@ -90,7 +90,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             <tr>
                 <td><label for="Cpassword">Confirm Password :</label>
                 </td>
-                <td><input type="password" name="Cpassword" id="Cpassword" required></td>
+                <td><input type="password" name="Cpassword" id="Cpassword" placeholder="Enter Password" required></td>
             </tr>
             
         </table>
