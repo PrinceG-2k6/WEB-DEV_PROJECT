@@ -41,7 +41,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
         <table>
             <tr>
                 <td><label for="user_id">User ID :</label></td>
-                <td> <input type="text" name="user_id" id="user_id" required></td>
+                <td> <input type="text" placeholder="Enter User ID" name="user_id" id="user_id" required></td>
             </tr>
             
             <tr>
